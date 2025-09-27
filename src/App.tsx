@@ -1,11 +1,10 @@
-import React from "react";
 import { AboutMeSection } from "./sections/AboutMeSection/AboutMeSection";
 import { ContactSection } from "./sections/ContactSection/ContactSection";
 import { ExperienceSection } from "./sections/ExperienceSection/ExperienceSection";
 import { HeroSection } from "./sections/HeroSection/HeroSection";
 import { PortfolioSection } from "./sections/PortfolioSection/PortfolioSection";
 import { ProjectsSection } from "./sections/ProjectsSection/ProjectsSection";
-import { ServicesSection } from "./sections/ServicesSection/ServicesSection";
+import { ServicesSection } from "./components/navigation/header";
 import { SkillsSection } from "./sections/SkillsSection/SkillsSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection/TestimonialsSection";
 import { WhyHireMeSection } from "./sections/WhyHireMeSection/WhyHireMeSection";
