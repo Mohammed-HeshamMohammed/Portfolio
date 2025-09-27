@@ -1,7 +1,7 @@
 import { Award as AwardIcon, Mail as MailIcon, ShieldCheck as ShieldCheckIcon, Star as StarIcon } from "lucide-react";
 import React from "react";
-import { Button } from "../../../../components/ui/button";
-import { Input } from "../../../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
 const achievementItems = [
   {

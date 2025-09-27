@@ -1,7 +1,6 @@
 import { Star as StarIcon } from "lucide-react";
 import { Quote as QuoteIcon } from "lucide-react";
-import React from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Card, CardContent } from "../../components/ui/card";
 
 const testimonialData = [
   {

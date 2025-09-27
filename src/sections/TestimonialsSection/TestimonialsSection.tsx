@@ -1,8 +1,8 @@
 import { ArrowUpRight as ArrowUpRightIcon } from "lucide-react";
 import React from "react";
-import { Badge } from "../../../../components/ui/badge";
-import { Button } from "../../../../components/ui/button";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
 
 export const TestimonialsSection = (): JSX.Element => {
   const blogPosts = [

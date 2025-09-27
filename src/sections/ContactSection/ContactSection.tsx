@@ -1,8 +1,7 @@
 import { ArrowUpRight as ArrowUpRightIcon, Facebook as FacebookIcon, Instagram as InstagramIcon, MessageCircle as MessageCircleIcon, Send as SendIcon, Twitter as TwitterIcon, Youtube as YoutubeIcon } from "lucide-react";
-import React from "react";
-import { Button } from "../../../../components/ui/button";
-import { Input } from "../../../../components/ui/input";
-import { Separator } from "../../../../components/ui/separator";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Separator } from "../../components/ui/separator";
 
 const navigationLinks = ["Home", "About Us", "Service", "Resume", "Project"];
 

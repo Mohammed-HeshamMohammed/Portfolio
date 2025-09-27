@@ -1,6 +1,6 @@
 import { ArrowUpRight as ArrowUpRightIcon } from "lucide-react";
 import React from "react";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "../../components/ui/button";
 
 export const ProjectsSection = (): JSX.Element => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
