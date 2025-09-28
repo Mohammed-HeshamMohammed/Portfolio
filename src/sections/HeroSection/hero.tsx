@@ -124,7 +124,7 @@ export const Hero = () => {
             }`}></div>
             
             <img 
-              src="../../../public/me mockup 2.png" 
+              src="../../../me_mockup_2.png" 
               alt="Mohammed Hesham" 
               className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[500px] object-contain object-bottom z-50 transition-all duration-800 delay-1000 ${
                 isVisible ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10'
