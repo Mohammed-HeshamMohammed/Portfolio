@@ -1,9 +1,99 @@
 import { Quote as QuoteIcon, Star as StarIcon } from "lucide-react";
 import React from "react";
+import { RotatingText } from "../../components/animation/rotating-text";
+
+interface Step {
+  action: 'type' | 'delete' | 'pause' | 'finish';
+  text?: string;
+  count?: number;
+  duration?: number;
+}
+
+const CustomTypewriter = ({ className }: { className?: string }) => {
+  const [displayText, setDisplayText] = React.useState("");
+  const [showCursor, setShowCursor] = React.useState(true);
+
+  React.useEffect(() => {
+    const sequence: Step[] = [
+      { action: 'type', text: "Mohammed's exceptional " },
+      { action: 'type', text: "softeware" },
+      { action: 'pause', duration: 500 },
+      { action: 'delete', count: 9 },
+      { action: 'type', text: "software" },
+      { action: 'type', text: " development ensures our " },
+      { action: 'type', text: "websiet's" },
+      { action: 'pause', duration: 400 },
+      { action: 'delete', count: 9 },
+      { action: 'type', text: "website's" },
+      { action: 'type', text: " success. " },
+      { action: 'type', text: "Hihgly" },
+      { action: 'pause', duration: 300 },
+      { action: 'delete', count: 6 },
+      { action: 'type', text: "Highly" },
+      { action: 'type', text: " recommended!" },
+      { action: 'finish' }
+    ];
+
+    let currentStep = 0;
+    let currentText = "";
+
+    const executeStep = () => {
+      if (currentStep >= sequence.length) return;
+
+      const step = sequence[currentStep];
+      
+      if (step.action === 'type' && step.text) {
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+          if (charIndex < step.text!.length) {
+            currentText += step.text![charIndex];
+            setDisplayText(currentText);
+            charIndex++;
+          } else {
+            clearInterval(typeInterval);
+            currentStep++;
+            setTimeout(executeStep, 50);
+          }
+        }, 60);
+      } else if (step.action === 'delete' && step.count) {
+        let deleteCount = 0;
+        const deleteInterval = setInterval(() => {
+          if (deleteCount < step.count!) {
+            currentText = currentText.slice(0, -1);
+            setDisplayText(currentText);
+            deleteCount++;
+          } else {
+            clearInterval(deleteInterval);
+            currentStep++;
+            setTimeout(executeStep, 100);
+          }
+        }, 40);
+      } else if (step.action === 'pause' && step.duration) {
+        setTimeout(() => {
+          currentStep++;
+          executeStep();
+        }, step.duration);
+      } else if (step.action === 'finish') {
+        setShowCursor(false);
+      }
+    };
+
+    const startTimer = setTimeout(executeStep, 1000);
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  return (
+    <span className={className}>
+      {displayText}
+      {showCursor && <span className="animate-pulse">|</span>}
+    </span>
+  );
+};
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = React.useState(false);
   const stars = Array(5).fill(null);
+  const engineerTypes = ["AI & ML", "Data", "DevOps", "Integration","Full-Stack", "Security","Embedded", "Network", "Database"];
 
   React.useEffect(() => {
     setIsVisible(true);
@@ -22,7 +112,7 @@ export const Hero = () => {
                 isVisible ? 'scale-100 rotate-0' : 'scale-0 rotate-12'
               }`}>
                 <span className="relative w-fit mt-[-3.5px] mb-[-1.5px] [font-family:'Lufga-Medium',Helvetica] font-medium text-neutral-900 text-lg tracking-[-0.25px] leading-[normal]">
-                  Hello!
+                  HI 
                 </span>
               </div>
               <div className={`absolute -top-0.5 left-[83px] w-7 h-[28px] bg-[#7209b7] rounded-full transition-all duration-600 delay-500 ${
@@ -39,8 +129,17 @@ export const Hero = () => {
                   Mohammed Hesham
                 </span>
               </div>
-              <div className="font-semibold text-neutral-900 tracking-[-1.2px] mt-2">
-                Software Engineer
+              <div className="font-semibold text-neutral-900 tracking-[-1.2px] mt-2 flex items-center justify-center gap-2">
+                <RotatingText
+                  texts={engineerTypes}
+                  rotationInterval={3000}
+                  staggerDuration={0.05}
+                  transition={{ type: "spring", damping: 20, stiffness: 200 }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                />
+                <span>Engineer</span>
               </div>
             </h1>
           </div>
@@ -60,21 +159,11 @@ export const Hero = () => {
             }`} />
             <div className="relative">
               <p className="relative w-fit [font-family:'Lufga-Medium',Helvetica] font-medium text-white text-base tracking-[-0.25px] leading-[1.4]">
-                <span className={`inline transition-all duration-1000 delay-800 ${
-                  isVisible ? 'opacity-100' : 'opacity-0'
-                }`}>Mohammed's exceptional software development</span>
-                <span className={`inline transition-all duration-800 delay-1200 ${
-                  isVisible ? 'opacity-100' : 'opacity-0'
-                }`}> ensures our website's success.</span>
-                <span className={`inline transition-all duration-600 delay-1600 ${
-                  isVisible ? 'opacity-100' : 'opacity-0'
-                }`}> Highly recommended!</span>
+                <CustomTypewriter />
               </p>
-              <div className={`absolute bottom-1 right-2 flex space-x-1 transition-all duration-300 delay-2000 ${
+              <div className={`absolute bottom-1 right-2 flex space-x-1 transition-all duration-300 delay-8000 ${
                 isVisible ? 'opacity-100' : 'opacity-0'
               }`}>
-                <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-                <div className="w-1 h-1 bg-white/60 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -127,7 +216,7 @@ export const Hero = () => {
               src="../../../me_mockup_2.png" 
               alt="Mohammed Hesham" 
               className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[500px] object-contain object-bottom z-50 transition-all duration-800 delay-1000 ${
-                isVisible ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10'
+                isVisible ? 'scale-110 opacity-100 translate-y-0' : 'scale-100 opacity-0 translate-y-10'
               }`}
             />
           </div>

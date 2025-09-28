@@ -91,14 +91,14 @@ export const ProjectsSection = (): JSX.Element => {
   const currentCards = serviceCards[currentSlide];
 
   return (
-    <section id="services" className="flex flex-col min-h-[600px] sm:h-[878px] items-center gap-12 sm:gap-24 px-4 sm:px-8 lg:px-[71px] py-[60px] sm:py-[116px] relative w-full rounded-[25px] sm:rounded-[50px] overflow-hidden bg-[linear-gradient(0deg,rgba(23,23,23,1)_0%,rgba(23,23,23,1)_100%)]">
-      <div className="absolute w-full top-[20px] sm:top-[50px] left-0 h-full">
+    <section id="services" className="flex flex-col items-center gap-12 sm:gap-24 px-4 sm:px-8 lg:px-[71px] py-[60px] sm:py-[116px] relative w-full rounded-[25px] sm:rounded-[50px] bg-[linear-gradient(0deg,rgba(23,23,23,1)_0%,rgba(23,23,23,1)_100%)]">
+      <div className="absolute w-full top-[20px] sm:top-[50px] left-0 h-full pointer-events-none">
         <div className="absolute top-[100px] sm:top-[146px] right-4 sm:right-[100px] lg:left-[954px] w-[200px] sm:w-[300px] lg:w-[486px] h-[300px] sm:h-[500px] lg:h-[682px] bg-gradient-to-br from-[#f72585] via-[#7209b7] to-[#4361ee] rounded-2xl sm:rounded-3xl opacity-30"></div>
         <div className="top-4 left-1/2 transform -translate-x-1/2 sm:left-[522px] sm:transform-none w-[150px] sm:w-[200px] lg:w-[261px] h-[150px] sm:h-[200px] lg:h-[261px] blur-[2.5px] absolute bg-gradient-to-br from-[#4cc9f0] to-[#4361ee] rounded-full opacity-40"></div>
         <div className="top-0 left-0 w-[200px] sm:w-[300px] lg:w-[409px] h-[250px] sm:h-[400px] lg:h-[597px] blur-[1.5px] absolute bg-gradient-to-br from-[#7209b7] to-[#3a0ca3] rounded-2xl sm:rounded-3xl opacity-20"></div>
       </div>
 
-      <header className="flex w-full max-w-[1299px] items-end justify-between relative flex-[0_0_auto] flex-col sm:flex-row gap-4 sm:gap-0">
+      <header className="flex w-full max-w-[1299px] items-end justify-between relative flex-col sm:flex-row gap-4 sm:gap-0 z-10">
         <h2 className="relative w-fit [font-family:'Lufga-Medium',Helvetica] font-normal text-transparent text-2xl sm:text-4xl lg:text-5xl leading-[32px] sm:leading-[40px] lg:leading-[48px] text-center sm:text-left">
           <span className="font-medium text-[#fbfcfc] tracking-[-0.35px]">
             My{" "}
@@ -114,12 +114,12 @@ export const ProjectsSection = (): JSX.Element => {
         </p>
       </header>
 
-      <div className="inline-flex flex-col items-center gap-6 sm:gap-[39px] relative flex-[0_0_auto] w-full">
+      <div className="inline-flex flex-col items-center gap-6 sm:gap-[39px] relative w-full z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[1299px] px-4">
           {currentCards.map((card, index) => (
             <div
               key={index}
-              className={`inline-flex flex-col items-center justify-center gap-4 sm:gap-6 relative flex-[0_0_auto] w-full h-[300px] sm:h-[400px] lg:h-[508px] bg-gradient-to-br ${card.gradient} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 transition-all duration-500 hover:scale-105`}
+              className={`inline-flex flex-col items-center justify-center gap-4 sm:gap-6 relative w-full h-[300px] sm:h-[400px] lg:h-[508px] bg-gradient-to-br ${card.gradient} rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 transition-all duration-500 hover:scale-105`}
             >
               <div className="w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 bg-white rounded-full flex items-center justify-center">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#7209b7]">{card.icon}</span>
@@ -138,7 +138,7 @@ export const ProjectsSection = (): JSX.Element => {
         </div>
 
         <nav
-          className="inline-flex items-start gap-2 sm:gap-[11.31px] relative flex-[0_0_auto]"
+          className="inline-flex items-start gap-2 sm:gap-[11.31px] relative"
           aria-label="Services pagination"
         >
           {serviceCards.map((_, index) => (

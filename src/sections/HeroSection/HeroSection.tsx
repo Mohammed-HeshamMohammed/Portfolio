@@ -1,4 +1,3 @@
-
 export const HeroSection = (): JSX.Element => {
   const companies = [
     {
@@ -33,8 +32,8 @@ export const HeroSection = (): JSX.Element => {
   ];
 
   return (
-    <section id="experience" className="flex flex-col min-h-[600px] sm:h-[827px] items-center px-4 sm:px-8 lg:px-[71px] py-0 relative self-stretch w-full">
-      <header className="flex items-center justify-center gap-2.5 px-0 py-[40px] sm:py-[85px] relative self-stretch w-full flex-[0_0_auto]">
+    <section id="experience" className="flex flex-col items-center px-4 sm:px-8 lg:px-[71px] py-[40px] sm:py-[85px] relative w-full">
+      <header className="flex items-center justify-center gap-2.5 px-0 py-[40px] sm:py-[85px] relative w-full">
         <h1 className="relative w-fit mt-[-1.00px] [font-family:'Lufga-Medium',Helvetica] font-normal text-transparent text-[28px] sm:text-[48px] lg:text-[64px] leading-[28px] sm:leading-[48px] lg:leading-[64px] text-center">
           <span className="font-medium text-[#344053] tracking-[-0.61px]">
             My{" "}
@@ -45,12 +44,12 @@ export const HeroSection = (): JSX.Element => {
         </h1>
       </header>
 
-      <div className="flex w-full max-w-[1298px] items-start justify-between relative flex-[0_0_auto] flex-col lg:flex-row gap-8 lg:gap-0">
-        <div className="inline-flex flex-col items-start gap-8 sm:gap-12 lg:gap-[102px] relative self-stretch flex-[0_0_auto] w-full lg:w-auto">
+      <div className="flex w-full max-w-[1298px] items-start justify-between relative flex-col lg:flex-row gap-8 lg:gap-0">
+        <div className="inline-flex flex-col items-start gap-8 sm:gap-12 lg:gap-[102px] relative w-full lg:w-auto">
           {companies.map((company, index) => (
             <div
               key={index}
-              className="inline-flex flex-col items-start gap-2 sm:gap-3.5 relative flex-[0_0_auto]"
+              className="inline-flex flex-col items-start gap-2 sm:gap-3.5 relative"
             >
               <h2 className="relative w-fit mt-[-1.00px] [font-family:'Lufga-SemiBold',Helvetica] font-semibold text-[#344053] text-[20px] sm:text-[28px] lg:text-[40px] tracking-[-0.60px] leading-6 sm:leading-8 lg:leading-10">
                 {company.name}
@@ -62,7 +61,7 @@ export const HeroSection = (): JSX.Element => {
           ))}
         </div>
 
-        <div className="relative flex-[0_0_auto] w-full lg:w-auto flex justify-center lg:block">
+        <div className="relative w-full lg:w-auto flex justify-center lg:block">
           <div className="relative h-[250px] sm:h-[300px] lg:h-[402px] w-full max-w-[300px] flex items-center justify-center">
             <div className="w-full h-1 bg-gray-300 rounded-full relative">
               <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-[#f72585] rounded-full"></div>
@@ -72,11 +71,11 @@ export const HeroSection = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="inline-flex flex-col items-start gap-6 sm:gap-8 lg:gap-12 relative flex-[0_0_auto] w-full lg:w-auto">
+        <div className="inline-flex flex-col items-start gap-6 sm:gap-8 lg:gap-12 relative w-full lg:w-auto">
           {roles.map((role, index) => (
             <div
               key={index}
-              className="inline-flex flex-col items-start gap-2 sm:gap-3.5 relative flex-[0_0_auto]"
+              className="inline-flex flex-col items-start gap-2 sm:gap-3.5 relative"
             >
               <h3 className="relative w-fit mt-[-1.00px] [font-family:'Lufga-SemiBold',Helvetica] font-semibold text-[#344053] text-[20px] sm:text-[28px] lg:text-[40px] tracking-[-0.60px] leading-6 sm:leading-8 lg:leading-10">
                 {role.title}
