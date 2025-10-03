@@ -1,4 +1,5 @@
 import React from "react";
+import { WavyBackground } from "../../components/bg/wave-animation";
 
 export const AboutSection = (): JSX.Element => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -23,10 +24,25 @@ export const AboutSection = (): JSX.Element => {
       <section
         ref={sectionRef}
         id="about"
-        className={`px-4 sm:px-8 lg:px-[71px] py-[96px] sm:py-[128px] min-h-[500px] relative w-full rounded-[20px] sm:rounded-[40px] bg-[linear-gradient(180deg,#171717_0%,#0f0f0f_100%)] shadow-[0_14px_40px_rgba(0,0,0,0.45)] transition-all duration-900 ${
+        className={`px-4 sm:px-8 lg:px-[71px] py-[96px] sm:py-[128px] min-h-[500px] relative w-full rounded-[20px] sm:rounded-[40px] overflow-hidden transition-all duration-900 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
         }`}
       >
+        {/* Static glassy layer + waves behind content */}
+        <div className="absolute inset-0 z-0 overflow-hidden rounded-[20px] sm:rounded-[40px] pointer-events-none">
+          <WavyBackground
+            fullHeight={false}
+            className="absolute inset-0"
+            containerClassName="w-full h-full"
+            backgroundFill="rgba(10,10,12,0.35)"
+            blur={14}
+            speed="fast"
+            waveOpacity={0.6}
+          />
+        </div>
+
+        {/* content wrapper above waves */}
+        <div className="relative z-10 bg-[rgba(4,4,6,0.5)] backdrop-blur-sm shadow-[0_14px_40px_rgba(0,0,0,0.45)] w-full h-full rounded-[20px] sm:rounded-[40px]">
         {/* Header (stays full width on top) */}
         <header
           className={`flex flex-col items-center gap-3 mb-12 transition-all duration-700 delay-200 ${
@@ -42,7 +58,7 @@ export const AboutSection = (): JSX.Element => {
           </p>
         </header>
 
-        {/* Three-column layout: left | center(circle) | right */}
+  {/* Three-column layout: left | center(circle) | right */}
         <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
           {/* LEFT */}
           <div
@@ -131,6 +147,7 @@ export const AboutSection = (): JSX.Element => {
               </a>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </div>
