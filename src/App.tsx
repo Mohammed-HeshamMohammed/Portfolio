@@ -2,9 +2,9 @@ import { AboutMeSection } from "./sections/AboutMeSection/AboutMeSection";
 import { ContactSection } from "./sections/ContactSection/ContactSection";
 import { Hero } from "./sections/HeroSection/hero";
 import { ExperienceSection } from "./sections/ExperienceSection/ExperienceSection";
-import { HeroSection } from "./sections/HeroSection/HeroSection";
+import { HeroSection } from "./sections/WorkExperienceSection/HeroSection";
 import { PortfolioSection } from "./sections/PortfolioSection/PortfolioSection";
-import { ProjectsSection } from "./sections/ProjectsSection/ProjectsSection";
+import { AboutSection } from "./sections/AboutSection/About-Section";
 import { Navbar } from "./components/navigation/header";
 import { SkillsSection } from "./sections/SkillsSection/SkillsSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection/TestimonialsSection";
@@ -15,7 +15,7 @@ export const Desktop = (): JSX.Element => {
     <main className="flex flex-col w-full min-h-screen items-center bg-white overflow-x-hidden">
       <Navbar />
       <Hero />
-      <ProjectsSection />
+      <AboutSection />
       <HeroSection />
       <ExperienceSection />
       <WhyHireMeSection />
